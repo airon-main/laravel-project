@@ -53,21 +53,11 @@ Route::get('/about', function () {
 Route::group(["prefix" => "/student"],function(){
     Route::get('/all', [StudentsController::class, 'index']);
     Route::get('/detail/{student}', [StudentsController::class, 'show']);
-    Route::get('/add', [StudentsController::class, 'add']);
-    Route::get('/edit/{student}', [StudentsController::class, 'edit']);
-    Route::post('/update/{student}', [StudentsController::class, 'update']);
-    Route::post('/store', [StudentsController::class, 'store']);
-    Route::delete('/delete/{student}', [StudentsController::class, 'destroy']);
 });
 
 Route::group(["prefix" => "/kelas"],function(){
     Route::get('/all', [KelasController::class, 'index']);
     Route::get('/detail/{kelas}', [KelasController::class, 'show']);
-    Route::get('/add', [KelasController::class, 'add']);
-    Route::get('/edit/{kelas}', [KelasController::class, 'edit']);
-    Route::post('/update/{kelas}', [KelasController::class, 'update']);
-    Route::post('/store', [KelasController::class, 'store']);
-    Route::delete('/delete/{kelas}', [KelasController::class, 'destroy']);
 });
 
 Route::get('/extracurricular', [ExtracurricularsController::class, 'index']);
@@ -82,21 +72,21 @@ Route::post('/signup', [RegisterController::class, 'store']);
 Route::group(["prefix" => "/dashboard"],function(){
     Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
     Route::group(["prefix" => "/student"],function(){
-        Route::get('/all', [DashboardStudentsController::class, 'index']);
-        Route::get('/detail/{student}', [DashboardStudentsController::class, 'show']);
-        Route::get('/add', [DashboardStudentsController::class, 'add']);
-        Route::get('/edit/{student}', [DashboardStudentsController::class, 'edit']);
-        Route::post('/update/{student}', [DashboardStudentsController::class, 'update']);
-        Route::post('/store', [DashboardStudentsController::class, 'store']);
-        Route::delete('/delete/{student}', [DashboardStudentsController::class, 'destroy']);
+        Route::get('/all', [DashboardStudentsController::class, 'index'])->middleware('auth');
+        Route::get('/detail/{student}', [DashboardStudentsController::class, 'show'])->middleware('auth');
+        Route::get('/add', [DashboardStudentsController::class, 'add'])->middleware('auth');
+        Route::get('/edit/{student}', [DashboardStudentsController::class, 'edit'])->middleware('auth');
+        Route::post('/update/{student}', [DashboardStudentsController::class, 'update'])->middleware('auth');
+        Route::post('/store', [DashboardStudentsController::class, 'store'])->middleware('auth');
+        Route::delete('/delete/{student}', [DashboardStudentsController::class, 'destroy'])->middleware('auth');
     });
     Route::group(["prefix" => "/kelas"],function(){
-        Route::get('/all', [DashboardKelasController::class, 'index']);
-        Route::get('/detail/{kelas}', [DashboardKelasController::class, 'show']);
-        Route::get('/add', [DashboardKelasController::class, 'add']);
-        Route::get('/edit/{kelas}', [DashboardKelasController::class, 'edit']);
-        Route::post('/update/{kelas}', [DashboardKelasController::class, 'update']);
-        Route::post('/store', [DashboardKelasController::class, 'store']);
-        Route::delete('/delete/{kelas}', [DashboardKelasController::class, 'destroy']);
+        Route::get('/all', [DashboardKelasController::class, 'index'])->middleware('auth');
+        Route::get('/detail/{kelas}', [DashboardKelasController::class, 'show'])->middleware('auth');
+        Route::get('/add', [DashboardKelasController::class, 'add'])->middleware('auth');
+        Route::get('/edit/{kelas}', [DashboardKelasController::class, 'edit'])->middleware('auth');
+        Route::post('/update/{kelas}', [DashboardKelasController::class, 'update'])->middleware('auth');
+        Route::post('/store', [DashboardKelasController::class, 'store'])->middleware('auth');
+        Route::delete('/delete/{kelas}', [DashboardKelasController::class, 'destroy'])->middleware('auth');
     });
 });

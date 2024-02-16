@@ -116,7 +116,7 @@
                                 Dashboard
                             </a>
                             @else
-                            <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="">
+                            <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/dashboard/">
                                 <span class="material-symbols-outlined">home</span>
                                 Dashboard
                             </a>
@@ -129,7 +129,7 @@
                                 Students
                             </a>
                             @else
-                            <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="">
+                            <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/dashboard/student/all">
                                 <span class="material-symbols-outlined">people</span>
                                 Students
                             </a>
@@ -142,7 +142,7 @@
                                 Grade
                             </a>
                             @else
-                            <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="">
+                            <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/dashboard/kelas/all">
                                 <span class="material-symbols-outlined">meeting_room</span>
                                 Grade
                             </a>

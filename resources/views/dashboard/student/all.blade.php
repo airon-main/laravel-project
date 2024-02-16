@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('dashboard.layout.main')
 
 @section('content')
 <style>
@@ -15,6 +15,7 @@
             {{ session ('success')}}
         </div>
     @endif
+    <a type="button" class="btn btn-primary" href="/dashboard/student/add">Add Student</a>
     <table class="table table-light">
         <thead>
             <tr>
@@ -33,13 +34,13 @@
                 <td>{{$student['nama']}}</td>
                 <td>{{$student->kelas->nama}}</td>
                 <td>
-                    <a type="button" class="btn btn-primary" href="/student/detail/{{$student['id']}}">Detail</a>
-                    <!-- <a type="button" class="btn btn-secondary" href="/student/edit/{{$student['id']}}">Edit</a>
-                    <form action="/student/delete/{{$student['id']}}" method="post" class="d-inline">
+                    <a type="button" class="btn btn-primary" href="/dashboard/student/detail/{{$student['id']}}">Detail</a>
+                    <a type="button" class="btn btn-secondary" href="/dashboard/student/edit/{{$student['id']}}">Edit</a>
+                    <form action="/dashboard/student/delete/{{$student['id']}}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                         <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')">Delete</button>
-                    </form> -->
+                    </form>
                 </td>
             </tr>
             @endforeach

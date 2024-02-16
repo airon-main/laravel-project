@@ -1,8 +1,8 @@
-@extends('layouts.main')
+@extends('dashboard.layout.main')
 
 @section('content')
-<h2 class="m-3">Add Student</h2>
-<form class="form mx-3 d-grid gap-3" method="post" action="/kelas/store">
+<h2 class="m-3">Add Kelas</h2>
+<form class="form mx-3 d-grid gap-3" method="post" action="/dashboard/kelas/store">
     @csrf
     <div class="form-group">
         <label for="">Nama</label>

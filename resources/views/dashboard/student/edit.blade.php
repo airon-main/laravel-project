@@ -1,8 +1,8 @@
-@extends('layouts.main')
+@extends('dashboard.layout.main')
 
 @section('content')
 <h2 class="m-3">Edit Student</h2>
-<form class="form mx-3 d-grid gap-3" method="post" action="/student/update/{{$student->id}}">
+<form class="form mx-3 d-grid gap-3" method="post" action="/dashboard/student/update/{{$student->id}}">
     @csrf
     <div class="form-group">
         <label for="">Nis</label>

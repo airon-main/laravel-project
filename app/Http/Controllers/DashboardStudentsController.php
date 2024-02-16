@@ -10,26 +10,29 @@ class DashboardStudentsController extends Controller
 {
     public function index()
     {
-        return view("student.all",
+        return view('dashboard.student.all',
         [   
-            "title" => "Student",
+            'title' => 'Student',
             'students' => Student::all(),
+            'active' => 'student',
         ]);
     }
 
     public function show($id)
     {
-        return view("student.detail",[
-            "title" => "Detail Student",
-            "student" => Student::find($id) //* Route model binding,
+        return view('dashboard.student.detail',[
+            'title' => 'Detail Student',
+            'student' => Student::find($id), //* Route model binding,
+            'active' => 'student',
         ]);
     }
 
     public function add()
     {
-        return view("student.add",[
-            "title" => "Add Student",
-            "kelas" => Kelas::all(),
+        return view('dashboard.student.add',[
+            'title' => 'Add Student',
+            'kelas' => Kelas::all(),
+            'active' => 'student',
         ]);
     }
 
@@ -45,15 +48,16 @@ class DashboardStudentsController extends Controller
 
         $result = Student::create($validateData);
         if($result) {
-            return redirect('/student/all')->with('success','Data siswa berhasil ditambahkan');
+            return redirect('dashboard/student/all')->with('success','Data siswa berhasil ditambahkan');
         }
     }
 
     public function edit(Student $student) {
-        return view("student.edit",[
-            "title" => "Edit Student",
-            "student" => Student::find($student->id), //* Route model binding,
-            "kelas" => Kelas::all(),
+        return view('dashboard.student.edit',[
+            'title' => 'Edit Student',
+            'student' => Student::find($student->id), //* Route model binding,
+            'kelas' => Kelas::all(),
+            'active' => 'student',
         ]);
     }
 
@@ -69,7 +73,7 @@ class DashboardStudentsController extends Controller
         $id = Student::findOrFail($id);
         $result = $id->update($validateData);
         if($result) {
-            return redirect('/student/all')->with('success','Data siswa berhasil diedit');
+            return redirect('dashboard/student/all')->with('success','Data siswa berhasil diedit');
         }
     }
 
@@ -77,7 +81,7 @@ class DashboardStudentsController extends Controller
         $result = Student::destroy($student -> id);
 
         if ($result) {
-            return redirect('student/all')->with('success','Data siswa berhasil dihapus');
+            return redirect('dashboard/student/all')->with('success','Data siswa berhasil dihapus');
         }
     }
 }

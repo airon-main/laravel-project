@@ -35,12 +35,6 @@
                 <td>{{$student->kelas->nama}}</td>
                 <td>
                     <a type="button" class="btn btn-primary" href="/student/detail/{{$student['id']}}">Detail</a>
-                    <a type="button" class="btn btn-secondary" href="/student/edit/{{$student['id']}}">Edit</a>
-                    <form action="/student/delete/{{$student['id']}}" method="post" class="d-inline">
-                        @method('delete')
-                        @csrf
-                        <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')">Delete</button>
-                    </form>
                 </td>
             </tr>
             @endforeach

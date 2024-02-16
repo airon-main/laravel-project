@@ -9,25 +9,28 @@ class DashboardKelasController extends Controller
 {
     public function index()
     {
-        return view("kelas.all",
+        return view("dashboard.kelas.all",
         [   
             "title" => "Kelas",
             "kelass" => Kelas::all(),
+            'active' => 'kelas',
         ]);
     }
 
     public function show($id)
     {
-        return view("kelas.detail",[
+        return view("dashboard.kelas.detail",[
             "title" => "Detail Kelas",
-            "kelas" => Kelas::find($id) //* Route model binding,
+            "kelas" => Kelas::find($id), //* Route model binding,
+            'active' => 'kelas',
         ]);
     }
 
     public function add()
     {
-        return view("kelas.add",[
+        return view("dashboard.kelas.add",[
             "title" => "Add Kelas",
+            'active' => 'kelas',
         ]);
     }
 
@@ -39,14 +42,15 @@ class DashboardKelasController extends Controller
 
         $result = Kelas::create($validateData);
         if($result) {
-            return redirect('/kelas/all')->with('success','Data kelas berhasil ditambahkan');
+            return redirect('/dashboard/kelas/all')->with('success','Data kelas berhasil ditambahkan');
         }
     }
 
     public function edit(Kelas $kelas) {
-        return view("kelas.edit",[
+        return view("dashboard.kelas.edit",[
             "title" => "Edit Kelas",
-            "kelas" => Kelas::find($kelas->id) //* Route model binding,
+            "kelas" => Kelas::find($kelas->id), //* Route model binding,
+            'active' => 'kelas',
         ]);
     }
 
@@ -58,7 +62,7 @@ class DashboardKelasController extends Controller
         $id = Kelas::findOrFail($id);
         $result = $id->update($validateData);
         if($result) {
-            return redirect('/kelas/all')->with('success','Data kelas berhasil diedit');
+            return redirect('dashboard/kelas/all')->with('success','Data kelas berhasil diedit');
         }
     }
 
@@ -66,7 +70,7 @@ class DashboardKelasController extends Controller
         $result = Kelas::destroy($kelas -> id);
 
         if ($result) {
-            return redirect('kelas/all')->with('success','Data kelas berhasil dihapus');
+            return redirect('dashboard/kelas/all')->with('success','Data kelas berhasil dihapus');
         }
     }
 }
