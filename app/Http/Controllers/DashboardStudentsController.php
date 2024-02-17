@@ -13,7 +13,7 @@ class DashboardStudentsController extends Controller
         return view('dashboard.student.all',
         [   
             'title' => 'Student',
-            'students' => Student::all(),
+            'students' => Student::first()->simplepaginate(5),
             'active' => 'student',
         ]);
     }
