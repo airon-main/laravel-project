@@ -10,7 +10,6 @@
     }
 </style>
 <div class="flex">
-    <a type="button" class="btn btn-primary margin_bottom_10" href="/student/add">Add new Data</a>
     @if (session()->has('success'))
         <div class="alert alert-success col-lg-12" role="alert">
             {{ session ('success')}}

@@ -66,10 +66,9 @@ class DashboardStudentsController extends Controller
             'nis'       => 'required|max:255',
             'nama'      => 'required|max:255',
             'tgl_lahir' => 'required',
-            'kelas'     => 'required',
+            'kelas_id'     => 'required',
             'alamat'    => 'required',
         ]);
-
         $id = Student::findOrFail($id);
         $result = $id->update($validateData);
         if($result) {
